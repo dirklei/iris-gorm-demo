@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"../models"
-	"../service"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
+	"iris-gorm-demo/models"
+	"iris-gorm-demo/service"
 	"log"
 )
 
@@ -15,7 +15,6 @@ type UserController struct {
 func NewUserController() *UserController {
 	return &UserController{Service: service.NewUserServices()}
 }
-
 
 func (g *UserController) PostLogin() models.Result {
 	var m map[string]string
@@ -37,4 +36,3 @@ func (g *UserController) PostSave() (result models.Result) {
 
 	return g.Service.Save(user)
 }
-

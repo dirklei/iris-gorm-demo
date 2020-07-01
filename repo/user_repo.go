@@ -1,10 +1,9 @@
-
 package repo
 
 import (
-	"../datasource"
-	"../models"
-	"../utils"
+	"iris-gorm-demo/datasource"
+	"iris-gorm-demo/models"
+	"iris-gorm-demo/utils"
 	// "github.com/spf13/cast"
 	"log"
 )
@@ -37,7 +36,7 @@ func (n userRepository) GetUserByUsername(username string) (user models.User) {
 func (n userRepository) Save(user models.User) (int, models.User) {
 	code := 0
 	tx := datasource.GetDB().Begin()
-	defer utils.Defer(tx,&code)
+	defer utils.Defer(tx, &code)
 	if user.ID != 0 {
 		var oldUser models.User
 		datasource.GetDB().First(&oldUser, user.ID)

@@ -1,11 +1,11 @@
 package main
 
 import (
-	"./conf"
-	"./route"
 	"flag"
 	"github.com/iris-contrib/middleware/cors"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
+	"iris-gorm-demo/conf"
+	"iris-gorm-demo/route"
 )
 
 func main() {
